@@ -1,6 +1,10 @@
 
 #!/usr/bin/bash
+<<<<<<< HEAD
 
+=======
+#uncomment the two lines below, to enable debug mode.
+>>>>>>> main
 #set -x
 
 #trap read debug

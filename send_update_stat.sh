@@ -1,6 +1,6 @@
 
 #!/usr/bin/bash
-
+#uncomment the two lines below, to enable debug mode.
 #set -x
 
 #trap read debug

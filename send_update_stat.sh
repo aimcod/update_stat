@@ -23,18 +23,18 @@ get_count=$(wc $updates_list -m | awk '{print $1}')
 if [[ $get_count -eq 0 ]]
 then
 
-	echo -e "to: aimcorp2018@gmail.com\nSubject:No updates were installed today.\nA total of $rpm_count updates were installed recently. Showing the latest 50:\n\n$rpm_show_last50" | /usr/sbin/sendmail -t -f root
+	echo -e "to: example@gmail.com\nSubject:No updates were installed today.\nA total of $rpm_count updates were installed recently. Showing the latest 50:\n\n$rpm_show_last50" | /usr/sbin/sendmail -t -f root
 
 else
 
-	echo -e "to: aimcorp2018@gmail.com\nSubject:Available updates on $(hostname)\nThe following updates are available on $(hostname):\n\n""$(cat $updates_list)\n\n\nPerforming Automatic Updates..." | /usr/sbin/sendmail -t -f root
+	echo -e "to: example@gmail.com\nSubject:Available updates on $(hostname)\nThe following updates are available on $(hostname):\n\n""$(cat $updates_list)\n\n\nPerforming Automatic Updates..." | /usr/sbin/sendmail -t -f root
  /usr/bin/dnf-3 upgrade -y &>2
  /usr/bin/dnf-3 autoremove -y &>2
 
 rpm_today=$(rpm -qa --last | grep "$date_now")
 rpm_today_count=$(rpm -qa --last | grep "$date_now"  | wc -l)
 
- echo -e "to: aimcorp2018@gmail.com\nSubject:Updates were installed on $(hostname)\nA total of $rpm_today_count updates were installed today. Here's the list:\n$rpm_today" | /usr/sbin/sendmail -t -f root
+ echo -e "to: example@gmail.com\nSubject:Updates were installed on $(hostname)\nA total of $rpm_today_count updates were installed today. Here's the list:\n$rpm_today" | /usr/sbin/sendmail -t -f root
  
 
 fi
